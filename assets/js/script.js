@@ -46,31 +46,20 @@ function getDirections() {
     const destinationLat = 13.1185;
     const destinationLng = 80.0271;
     const destinationName = "Mayura Motors Thiruninravur";
+    const destinationAddress = "No 1, Moovender Nagar, Chennai Thiruvallur High Road, Thiruninravur, Tamil Nadu 602024";
     
-    // Check if browser supports geolocation
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                // User's current location
-                const userLat = position.coords.latitude;
-                const userLng = position.coords.longitude;
-                
-                // Create Google Maps directions URL
-                const directionsUrl = `https://www.google.com/maps/dir/${userLat},${userLng}/${destinationLat},${destinationLng}/@${destinationLat},${destinationLng},15z/data=!4m2!4m1!3e0`;
-                
-                // Open directions in new tab
-                window.open(directionsUrl, '_blank');
-            },
-            (error) => {
-                // If user denies location or error occurs, open with just destination
-                const fallbackUrl = `https://www.google.com/maps/dir//${destinationLat},${destinationLng}/@${destinationLat},${destinationLng},15z`;
-                window.open(fallbackUrl, '_blank');
-            }
-        );
-    } else {
-        // Browser doesn't support geolocation
-        const fallbackUrl = `https://www.google.com/maps/dir//${destinationLat},${destinationLng}/@${destinationLat},${destinationLng},15z`;
-        window.open(fallbackUrl, '_blank');
+    // Use a simpler Google Maps URL that works better across devices
+    const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${destinationLat},${destinationLng}&destination_place_id=ChIJN1t_tDeuEmsRUsoyG83frY4&travelmode=driving`;
+    
+    // Try to open the URL
+    const newWindow = window.open(mapsUrl, '_blank');
+    
+    // If popup was blocked, use location.href as fallback
+    if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+        // Fallback: navigate in same window
+        if (confirm('Open directions to Mayura Motors in Google Maps?')) {
+            window.location.href = mapsUrl;
+        }
     }
 }
 
