@@ -69,6 +69,7 @@ body {
     transition: all 0.3s ease;
     padding: 0.5rem;
     border-radius: 12px;
+    gap: 1rem;
 }
 
 .logo:hover {
@@ -76,6 +77,12 @@ body {
     backdrop-filter: blur(10px);
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.tvs-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
 }
 
 .logo-text {
@@ -132,6 +139,19 @@ body {
     background: var(--secondary-color);
     margin: 3px 0;
     transition: var(--transition);
+    display: block;
+}
+
+.nav-toggle span.active:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle span.active:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle span.active:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
 }
 
 .nav-menu {
@@ -1083,10 +1103,154 @@ body {
     }
 }
 
+/* Floating Chat */
+.floating-chat {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.chat-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(227, 30, 36, 0.3);
+    transition: var(--transition);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(227, 30, 36, 0.5);
+}
+
+.chat-options {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    background: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.chat-options.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.chat-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.chat-close {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: var(--transition);
+}
+
+.chat-close:hover {
+    color: var(--primary-color);
+}
+
+.chat-buttons {
+    padding: 1rem;
+}
+
+.chat-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.chat-btn:last-child {
+    margin-bottom: 0;
+}
+
+.chat-btn:hover {
+    background: #e8f5e9;
+    transform: translateX(5px);
+}
+
+.chat-btn i {
+    font-size: 2rem;
+    color: #25D366;
+}
+
+.chat-label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.chat-number {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-toggle {
         display: flex;
+    }
+    
+    .tvs-logo {
+        height: 30px;
+    }
+    
+    .company-name {
+        font-size: 1.5rem;
+    }
+    
+    .floating-chat {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .chat-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .chat-options {
+        width: 280px;
+        right: -10px;
     }
     
     .nav-menu {

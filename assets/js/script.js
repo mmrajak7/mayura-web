@@ -14,8 +14,68 @@ navToggle.addEventListener('click', () => {
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
+        // Also reset hamburger menu animation
+        const spans = navToggle.querySelectorAll('span');
+        spans.forEach(span => span.classList.remove('active'));
     });
 });
+
+// Floating Chat Functionality
+const chatToggle = document.getElementById('chatToggle');
+const chatOptions = document.getElementById('chatOptions');
+const chatClose = document.getElementById('chatClose');
+
+chatToggle.addEventListener('click', () => {
+    chatOptions.classList.toggle('active');
+});
+
+chatClose.addEventListener('click', () => {
+    chatOptions.classList.remove('active');
+});
+
+// Close chat when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.floating-chat')) {
+        chatOptions.classList.remove('active');
+    }
+});
+
+// Get Directions Function
+function getDirections() {
+    // Mayura Motors coordinates
+    const destinationLat = 13.1185;
+    const destinationLng = 80.0271;
+    const destinationName = "Mayura Motors Thiruninravur";
+    
+    // Check if browser supports geolocation
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                // User's current location
+                const userLat = position.coords.latitude;
+                const userLng = position.coords.longitude;
+                
+                // Create Google Maps directions URL
+                const directionsUrl = `https://www.google.com/maps/dir/${userLat},${userLng}/${destinationLat},${destinationLng}/@${destinationLat},${destinationLng},15z/data=!4m2!4m1!3e0`;
+                
+                // Open directions in new tab
+                window.open(directionsUrl, '_blank');
+            },
+            (error) => {
+                // If user denies location or error occurs, open with just destination
+                const fallbackUrl = `https://www.google.com/maps/dir//${destinationLat},${destinationLng}/@${destinationLat},${destinationLng},15z`;
+                window.open(fallbackUrl, '_blank');
+            }
+        );
+    } else {
+        // Browser doesn't support geolocation
+        const fallbackUrl = `https://www.google.com/maps/dir//${destinationLat},${destinationLng}/@${destinationLat},${destinationLng},15z`;
+        window.open(fallbackUrl, '_blank');
+    }
+}
+
+// Make the function globally available
+window.getDirections = getDirections;
 
 // Smooth Scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

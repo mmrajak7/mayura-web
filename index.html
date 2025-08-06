@@ -245,6 +245,7 @@
         <div class="container">
             <div class="nav-header">
                 <a href="#" class="logo">
+                    <img src="https://www.tvsmotor.com/-/media/Feature/Header/TVSLogo-hr.svg" alt="TVS Logo" class="tvs-logo">
                     <div class="logo-text">
                         <span class="company-name">MAYURA MOTORS</span>
                         <span class="company-tagline">Authorised TVS Dealer</span>
@@ -703,9 +704,9 @@
                             📍 On Chennai-Tiruvallur Highway<br>
                             📍 Opposite to Local Bus Stand
                         </p>
-                        <a href="https://maps.app.goo.gl/kvdKEnLuBX1QMrx18" target="_blank" class="btn btn-outline">
+                        <button onclick="getDirections()" class="btn btn-outline">
                             <i class="fas fa-directions"></i> Get Directions
-                        </a>
+                        </button>
                     </div>
 
                     <div class="contact-card">
@@ -786,6 +787,37 @@
         </div>
     </section>
 
+
+    <!-- Floating Chat Button -->
+    <div class="floating-chat">
+        <button class="chat-toggle" id="chatToggle">
+            <i class="fas fa-comments"></i>
+        </button>
+        <div class="chat-options" id="chatOptions">
+            <div class="chat-header">
+                <h4>How can we help?</h4>
+                <button class="chat-close" id="chatClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-buttons">
+                <a href="https://wa.me/919344391745?text=Hi%20Mayura%20Motors,%20I'm%20interested%20in%20buying%20a%20TVS%20vehicle" target="_blank" class="chat-btn sales">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <span class="chat-label">Chat with Sales</span>
+                        <span class="chat-number">+91 9344391745</span>
+                    </div>
+                </a>
+                <a href="https://wa.me/916374256070?text=Hi%20Mayura%20Motors,%20I%20need%20service%20for%20my%20TVS%20vehicle" target="_blank" class="chat-btn service">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <span class="chat-label">Chat with Service</span>
+                        <span class="chat-number">+91 6374256070</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <script src="assets/js/script.js"></script>
 </body>
