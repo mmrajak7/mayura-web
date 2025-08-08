@@ -9,6 +9,19 @@
 - Fixed "Get Directions" button functionality
 - Changed from JavaScript onclick to direct Google Maps link
 - Improved error handling for popup blockers
+- Fixed duplicate favicon and updated page title
+- Reverted title back to "Mayura TVS - Authorised TVS Dealer, Thiruninravur"
+
+## Current Todo List (In Progress)
+1. ✅ Revert title to original preferred version
+2. 🔄 Add proper domain verification for Google  
+3. ⏳ Fix favicon display issue (Google search results still showing generic icon)
+4. ⏳ Commit and push changes
+
+## Issues to Address
+- Google search results still showing generic website icon instead of custom favicon
+- Search results showing "mayuramotors.co.in" - need to improve SEO visibility
+- Favicon needs to be properly recognized by Google (may require time for re-indexing)
 
 ## Important Files
 - `index.html` - Main website file
