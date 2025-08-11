@@ -210,18 +210,18 @@ function autoRotateVehicles() {
 if (vehicleCards.length > 0) {
     showVehicle(0);
     
-    // Set up auto-rotation
-    const autoRotate = setInterval(autoRotateVehicles, 4000);
+    // Set up auto-rotation with 8-second intervals for slower, more deliberate transitions
+    const autoRotate = setInterval(autoRotateVehicles, 8000);
     
     // Add click handlers to navigation dots
     navDots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
             clearInterval(autoRotate);
             showVehicle(index);
-            // Restart auto-rotation after 8 seconds
+            // Restart auto-rotation after 12 seconds
             setTimeout(() => {
-                setInterval(autoRotateVehicles, 4000);
-            }, 8000);
+                setInterval(autoRotateVehicles, 8000);
+            }, 12000);
         });
     });
     
@@ -233,7 +233,7 @@ if (vehicleCards.length > 0) {
         });
         
         vehicleShowcase.addEventListener('mouseleave', () => {
-            setInterval(autoRotateVehicles, 4000);
+            setInterval(autoRotateVehicles, 8000);
         });
     }
 }
