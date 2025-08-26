@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Mayura Motors Logo</title>
+</head>
+<body>
+    <!-- Logo Generator -->
+    <canvas id="logo" width="512" height="512"></canvas>
+    <canvas id="icon" width="32" height="32"></canvas>
+    
+    <script>
+        // Generate main logo (512x512)
+        const logoCanvas = document.getElementById('logo');
+        const logoCtx = logoCanvas.getContext('2d');
+        
+        // Background
+        logoCtx.fillStyle = '#dc2626';
+        logoCtx.fillRect(0, 0, 512, 512);
+        
+        // White M
+        logoCtx.fillStyle = 'white';
+        logoCtx.font = 'bold 280px Arial';
+        logoCtx.textAlign = 'center';
+        logoCtx.textBaseline = 'middle';
+        logoCtx.fillText('M', 256, 256);
+        
+        // Generate icon (32x32)
+        const iconCanvas = document.getElementById('icon');
+        const iconCtx = iconCanvas.getContext('2d');
+        
+        // Background
+        iconCtx.fillStyle = '#dc2626';
+        iconCtx.fillRect(0, 0, 32, 32);
+        
+        // White M
+        iconCtx.fillStyle = 'white';
+        iconCtx.font = 'bold 18px Arial';
+        iconCtx.textAlign = 'center';
+        iconCtx.textBaseline = 'middle';
+        iconCtx.fillText('M', 16, 16);
+        
+        // Convert to data URLs and log them
+        console.log('Logo Data URL:', logoCanvas.toDataURL('image/png'));
+        console.log('Icon Data URL:', iconCanvas.toDataURL('image/png'));
+        
+        // Instructions
+        document.body.innerHTML += '<br><p>Right-click each canvas and save as:</p>';
+        document.body.innerHTML += '<ul><li>mayura-motors-logo.png (512x512)</li><li>mayura-motors-icon.png (32x32)</li></ul>';
+    </script>
+</body>
+</html>

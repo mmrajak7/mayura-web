@@ -4,19 +4,14 @@
   "description": "Authorized TVS dealer in Thiruninravur, Chennai offering all TVS bikes, scooters, electric vehicles with sales, service and genuine parts",
   "icons": [
     {
-      "src": "/assets/images/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
+      "src": "/assets/images/mayura-icon.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
     },
     {
-      "src": "/assets/images/android-chrome-512x512.png",
+      "src": "/assets/images/mayura-logo.svg",
       "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "/assets/images/mayura-motors-icon.png",
-      "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ],
